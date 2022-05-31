@@ -335,11 +335,11 @@ func main() {
 	}
 	flag.Parse()
 
-	// initialize game
+	//Initialize game
 	initialise()
 	defer cleanup()
 
-	// load resources
+	//Load resources
 	err := loadMaze(*mazeFile)
 	if err != nil {
 		log.Println("failed to load maze:", err)
@@ -352,7 +352,7 @@ func main() {
 		return
 	}
 
-	// process input (async)
+	//Process input (async)
 	input := make(chan string)
 	go func(ch chan<- string) {
 		for {
@@ -376,9 +376,9 @@ func main() {
 		}(ghostChannels[i])
 	}
 
-	// game loop
+	//Game loop
 	for {
-		// process movement
+		//Process input
 		select {
 		case inp := <-input:
 			if inp == "ESC" {
@@ -389,12 +389,12 @@ func main() {
 		}
 
 		//moveGhosts()
-		//for each ghost, draw a direction for it
+		//For each ghost, draw a direction for it
 		for i, g := range ghosts {
 			g.position.row, g.position.col = makeMove(g.position.row, g.position.col, <-ghostChannels[i])
 		}
 
-		// process collisions
+		//Process collisions
 		for _, g := range ghosts {
 			if player.row == g.position.row && player.col == g.position.col {
 				ghostsStatusMx.RLock()
@@ -406,7 +406,7 @@ func main() {
 						moveCursor(len(maze)+2, 0)
 						ghostsStatusMx.RUnlock()
 						updateGhosts(ghosts, GhostStatusNormal)
-						time.Sleep(1000 * time.Millisecond) //dramatic pause before reseting player position
+						time.Sleep(1000 * time.Millisecond)
 						player.row, player.col = player.startRow, player.startCol
 					}
 				} else if g.status == GhostStatusBlue {
@@ -417,10 +417,10 @@ func main() {
 			}
 		}
 
-		// update screen
+		//Update screen
 		printScreen()
 
-		// check game over
+		//Check game over
 		if numDots == 0 || lives <= 0 {
 			if lives == 0 {
 				moveCursor(player.row, player.col)
@@ -432,7 +432,7 @@ func main() {
 			break
 		}
 
-		// repeat
+		//Repeat
 		time.Sleep(200 * time.Millisecond)
 	}
 }
