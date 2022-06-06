@@ -23,5 +23,5 @@ How to play
 
 Other Resources
 -----------
-Video Presentation: [Youtube](https://youtu.be/WxghE6uBQz8)
-Architecture Documents: [ARCHITECTURE.md](./ARCHITECTURE.md)
+- Video Presentation: [Youtube](https://youtu.be/WxghE6uBQz8)
+- Architecture Documents: [ARCHITECTURE.md](./ARCHITECTURE.md)
