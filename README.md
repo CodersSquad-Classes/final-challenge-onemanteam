@@ -1,66 +1,27 @@
-Multithreaded Pacman Game - (single-node)
+
+
+
+Pacman - Single Player Game 
 =========================================
-
-Implement a multithreaded version of the arcade video game [Pacman](https://en.wikipedia.org/wiki/Pac-Man). This version will be a
-Computer vs Human game. Each enemy will be independent and the number of enemies is configurable. Below you can see the general
-requirements for the enemies and human player (pacman) interation.
-
 ![Pacman](pacman.png)
-
 
 Technical Requirements
 ----------------------
-- The game's maze layout can be static.
-- The `pacman` gamer must be controlled by the user.
-- Enemies are autonomous entities that will move a random way.
-- Enemies and pacman should respect the layout limits and walls.
-- Enemies number can be configured on game's start.
-- Each enemy's behaviour will be implemented as a separated thread.
-- Enemies and pacman threads must use the same map or game layout data structure resource.
-- Display obtained pacman's scores.
-- Pacman loses when an enemy touches it.
-- Pacman wins the game when it has taken all coins in the map.
+- An 'up to date' version of Go installed
+- A functioning keyboard
+- A functioning screen
 
+How to play
+-----------
+- 1.- On a terminal, navigate to the folder were these files are located.
+- 2.- Once the files are located, run either of the following commands:
+    - go run pac.go
+    - make test
+- 3.- The program will then ask for the number of enemies (Ghosts) you wish to play against, after hitting 'ENTER', the game will start.
+- 4.- During the game your objective will be to "Eat" or "Collect" all the "Cheese" while avoiding the Ghosts.
+- 5.- The game ends when you run out of lives, or when you collect all of the cheese. You may also end it earlier by pressing "ESC".
 
-General Requirements
---------------------
-- Make sure that you complete the below defined deliverables.
-- Source code dependencies must be clearly documented.
-
-
-Deliverables
-------------
-- Source code can be in a single student's account and the other team members can contribute to the same repository.
-- Architecture Document - [ARCHITECTURE.md](ARCHITECTURE.md)
-  - Details on how you designed and implemented your solution
-  - Project architecture description, diagrams, charts and everything related to the way you think/design/build your program
-- Build/Run automation (`Makefile` and documentation - [PACMAN.md](PACMAN.md))
-  - Instructions on how to build and run your program
-- Project's presentation (5-10 minutes)
-  - A video presentation that will be delivered to the professor, in youtube preferable
-
-
-Permitted programming languages
--------------------------------
-- Multithreaded core backend
-  - C
-  - Go
-- User Interface (optional)
-  - Any
-  - If it's terminal, output must be human-readable
-
-
-Grading Policy
---------------
-| Concept                      | Grade |
-|------------------------------|-------|
-| Architecture Document        | 20%   |
-| Multithreaded implementation | 30%   |
-| Build Automation             | 20%   |
-| Coding best practices        | 10%   |
-| Presentation                 | 20%   |
-| TOTAL                        | 100%  |
-
-- **Free Lab Bonus**
-
-  You get cat an extra bonus if you implement an Artificial Intelligence algorithm in enemies behaviour for finding the pacman location, trace the route and follow it. This AI must be documented in the `ARCHITECTURE.md` file.
+Other Resources
+-----------
+Video Presentation: [Youtube](https://youtu.be/WxghE6uBQz8)
+Architecture Documents: [ARCHITECTURE.md](./ARCHITECTURE.md)
